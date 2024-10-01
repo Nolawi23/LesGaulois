@@ -29,31 +29,28 @@ public class Village {
 	}
 	
 	public void afficherVillageois(Village village, Chef chef) {
-		System.out.println("Dans " + village.getNom() + "du chef " + chef.getNom() + "vivent les legendaires gaulois: ");
+		System.out.println("Dans " + village.getNom() + " du chef " + chef.getNom() + " vivent les legendaires gaulois: ");
 		do {
-			System.out.println(villageois[nbVillageois]);
-			nbVillageois++;
+			System.out.println("-" + village.trouverHabitant(nbVillageois-1).getNom());
+			nbVillageois--;
 			
-		} while (nbVillageois<30);
+		}while (nbVillageois>0);
 		
 	}
-	
 	public static void main(String[] args) {
-		Village village = new Village("Village des Irr√©ductibles", 30);
-		/*
-		 * Gaulois gaulois = village.trouverHabitant(30); Index out of range
-		 */ 
-		/*
-		 * Chef abraracourcix = new Chef("Abraracourcix ",6, village);
-		 * village.setChef(abraracourcix); Gaulois ast√©rix = new Gaulois("Ast√©rix", 8);
-		 * village.ajouterHabitant(ast√©rix); Gaulois gaulois =
-		 * village.trouverHabitant(1); System.out.println(gaulois);
-		 */
-		Gaulois obelix= new Gaulois("Ob√©lix",25);
-		village.ajouterHabitant(obelix);
-		System.out.println(village.trouverHabitant(0));
-		village.afficherVillageois();
+		Village village = new Village("Village des IrrÈductibles", 30);
 		
+//		Gaulois gaulois = village.trouverHabitant(30); Index out of range
+		Chef chef= new Chef("Abraracourcix", 6, village);
+		village.setChef(chef);
+		Gaulois asterix= new Gaulois("AstÈrix",25);
+		village.ajouterHabitant(asterix);
+//		Gaulois gaulois = village.trouverHabitant(1);
+//		System.out.println(gaulois); renvoie null
+
+		Gaulois obelix= new Gaulois("ObÈlix",25);
+		village.ajouterHabitant(obelix);
+		village.afficherVillageois(village, chef);
 		
 		
 		
