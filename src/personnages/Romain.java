@@ -7,17 +7,17 @@ public class Romain {
 	private Equipement[] equipements = new Equipement[2];
 
 	public Romain(String nom, int force) {
-		assert invariantForce(force);
+		assert isForcePositif(force);
 		this.nom = nom;
 		this.force = force;
 	}
 
-	private boolean invariantForce(int force) {
+	private boolean isForcePositif(int force) {
 		return force > 0;
 	}
 
-	private boolean invariantForceDiminue(int copyforce) {
-		return force < copyforce;
+	private boolean isForceDiminue(int forceApresCoup) {
+		return forceApresCoup < force;
 	}
 
 	public String getnom() {
@@ -34,15 +34,15 @@ public class Romain {
 	}
 
 	public void recevoirCoup(int forceCoup) {
-		assert invariantForce(force);
-		int copyforce = force;
+		assert isForcePositif(forceCoup);
 		force -= forceCoup;
 		if (force > 0) {
 			parler("Aie");
 		} else {
 			parler("J'abandonne...");
 		}
-		assert invariantForceDiminue(copyforce);
+		int forceApresCoup = force;
+		assert isForceDiminue(forceApresCoup);
 	}
 
 	public void sEquiper(Equipement equipement) {
