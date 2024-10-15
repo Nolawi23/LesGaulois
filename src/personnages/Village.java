@@ -38,26 +38,18 @@ public class Village {
 		
 	}
 	public static void main(String[] args) {
-		Village village = new Village("Village des Irréductibles", 30);
+		Village village = new Village("Village des Irrï¿½ductibles", 30);
 		
 //		Gaulois gaulois = village.trouverHabitant(30); Index out of range
 		Chef chef= new Chef("Abraracourcix", 6, village);
 		village.setChef(chef);
-		Gaulois asterix= new Gaulois("Astérix",25);
+		Gaulois asterix= new Gaulois("AstÃ©rix",25);
 		village.ajouterHabitant(asterix);
 //		Gaulois gaulois = village.trouverHabitant(1);
 //		System.out.println(gaulois); renvoie null
 
-		Gaulois obelix= new Gaulois("Obélix",25);
+		Gaulois obelix= new Gaulois("ObÃ©lix",25);
 		village.ajouterHabitant(obelix);
-		village.afficherVillageois(village, chef);
-		
-		
-		
-		
-		
-		
-		
+		village.afficherVillageois(village, chef);	
 	}
-	
 }
