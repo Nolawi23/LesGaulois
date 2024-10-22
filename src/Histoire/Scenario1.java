@@ -3,6 +3,7 @@ package Histoire;
 import personnages.Druide;
 import personnages.Equipement;
 import personnages.Gaulois;
+import personnages.Musee;
 import personnages.Romain;
 //import villagegaulois.Musee;
 
@@ -30,7 +31,11 @@ public class Scenario1 {
 		milexcus.parler("UN GAU... UN GAUGAU...");
 		do {
 			asterix.frapper(milexcus);
-		} while (milexcus.getForce() > 0);
+		} while (milexcus.getForce() > 0 && milexcus.getVainqueur());
+		Musee musee = new Musee();
+		asterix.faireUneDonnation(musee);
+		System.out.println(musee.extraireInstructionsOCaml());
+		
 		
 //		Partie a decommenter
 		

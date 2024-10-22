@@ -1,5 +1,6 @@
 package personnages;
 
+
 public class Gaulois {
 	private String nom;
 	private int force;
@@ -45,6 +46,19 @@ public class Gaulois {
 	public void boirePotion(int force) {
 		effetPotion = force;
 		parler("Merci Druide, je sens que ma force est " + effetPotion + " fois décuplée.");
+	}
+	
+	public void faireUneDonnation(Musee musee) {
+		if (nbTrophees>0) {
+			parler("Je donne au musee tous mes trophees: ");
+			for (int i = 0; i < nbTrophees; i++) {
+				parler("- "+ trophees[i]);
+				musee.donnerTrophees(this, trophees[i]);
+			}
+		}else {
+			System.out.println("Le Gaulois " + this.getNom() + " n'a pas de trophees");
+		}
+		
 	}
 
 	public static void main(String[] args) {
