@@ -4,17 +4,18 @@ public class Musee {
 	Trophee[]trophees= new Trophee[200];
 	int nbTrophee = 0;
 	
-	public String extraireInstructionsOCaml() {
-		String texte = "let musee = [ "; 
+	public StringBuilder extraireInstructionsOCaml(){
+		StringBuilder texte = new StringBuilder();
+		texte.append("let musee = [ ");
 		if (nbTrophee>0) {
-			texte += "\n";
+			texte.append("\n");
 			for (int i = 0; i < nbTrophee; i++) {
-				texte += trophees[i].donnerNom();
+				texte.append(trophees[i].donnerNom());
 				Equipement equipement= trophees[i].getEquipement();
-				texte += ", " + equipement.toString() + ";\n";
+				texte.append(", " + equipement.toString() + ";\n");
 			}
 		}
-		texte += "]";
+		texte.append("]");
 		return texte;
 		
 	}
